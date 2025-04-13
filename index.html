@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Narr Website</title>
+
+    <!-- CSS External -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header dan Nav Bar -->
+    <header class="main-header">
+        <!-- Logo -->
+        <div class="main-logo" aria-label="Logo"></div>
+
+        <!-- Navigation Bar -->
+        <nav aria-label="Main navigation">
+            <a href="#home-section">Home</a>
+            <a href="#about-section">About</a>
+            <a href="#portfolio-section">Portfolio</a>
+            <a href="#contact-section">Contact</a>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Home Section -->
+        <section id="home-section">
+            <!-- Welcome Speech -->
+            <header>
+                <h2 id="welcome-message">Hi, Welcome to my website</h2>
+            </header>
+            
+            <!-- Banner Content -->
+            <div class="banner-img"></div>
+
+            <!-- Section Content -->
+            <article class="section-content"> 
+                <p>I'm a passionate Web & Mobile Developer who’s currently learning and diving deeper into building modern, user-friendly applications.</p>
+                <p>I love exploring new tools, frameworks, and creative solutions. Currently sharpening my skills with real-world projects.</p>
+                <p>Feel free to check out my <a href="#portfolio-section">portfolio</a> or <a href="#contact-section">reach out</a> for collaboration!</p>
+            </article>
+            
+        </section>
+
+        <!-- About me Section -->
+        <section id="about-section">
+            <header>
+                <h2>About Me</h2>
+            </header>
+            <article class="section-content about-me">
+                <img src="assets/foto profil.jpg" alt="Dhanar Agastya Rakalangi" class="profile-img">
+                <h3>Dhanar Agastya Rakalangi</h3>
+                <p class="subtitle">Web &amp; Mobile Developer Enthusisast </p>
+                <div class="bio">
+                    I’m an undergraduate student at Institut Teknologi Sepuluh Nopember (ITS), majoring in Mathematics. Alongside my academic journey, I have a strong passion for both Web Development and Mobile Development. I enjoy combining the logical and analytical thinking from mathematics with the creative process of building modern, user-friendly applications.
+                    <br><br>
+                    For me, development is not just about writing code — it’s about crafting smart and effective digital solutions. Right now, I’m actively learning and improving my skills in front-end and back-end technologies, as well as mobile app development using modern frameworks.
+                    <br><br>
+                    Feel free to explore this site to see more about my projects and learning journey!
+                  </div>
+            </article>
+        </section>
+          
+        
+        <!-- Portfolio Section -->
+        <section id="portfolio-section">
+            <header>
+                <h2>My Portfolio</h2>
+            </header>
+            <article class="section-content">
+                <p>Here are some of the projects I’ve worked on recently.</p>
+
+                <div id="portfolio-cards-container" class="portfolio-cards"></div>
+            </article>
+        </section>
+
+        <!-- Contact me Section -->
+        <section id="contact-section">
+            <header>
+                <h2>Contact Me</h2>
+            </header>
+
+            <article class="section-content contact-container">
+                <form id="contact-form" class="contact-form">
+                    <label>
+                        Nama :
+                        <input type="text" id="name" placeholder="Nama" required />
+                    </label>
+
+                    <label>
+                        Tanggal Lahir :
+                        <input type="date" id="dob" required />
+                    </label>
+
+                    <label>
+                        Jenis Kelamin :
+                        <div class="gender-options">
+                            <label><input type="radio" name="gender" value="Laki-Laki" required /> Laki-Laki</label>
+                            <label><input type="radio" name="gender" value="Perempuan" /> Perempuan</label>
+                        </div>
+                    </label>
+
+                    <label>
+                        Pesan :
+                        <textarea id="message" placeholder="Pesan" required></textarea>
+                    </label>
+
+                    <button type="submit">Submit</button>
+                </form>
+
+                <div id="contact-result" class="contact-result">
+                    <p><strong>Current time</strong> : <span id="current-time"></span></p>
+                    <p><strong>Nama</strong> : <span id="result-name">-</span></p>
+                    <p><strong>Tanggal Lahir</strong> : <span id="result-dob">-</span></p>
+                    <p><strong>Jenis Kelamin</strong> : <span id="result-gender">-</span></p>
+                    <p><strong>Pesan</strong> : <span id="result-message">-</span></p>
+                </div>
+            </article>
+        </section>
+    </main>
+
+    <!-- Footer Content -->
+    <footer>
+        <div class="social-icons">
+            <a href="https://www.instagram.com/agastyaa.ra/" target="_blank">
+                <img src="/assets/instagram.png" alt="Instagram">
+            </a>
+            <a href="https://linkedin.com/in/dhanaragastya/" target="_blank">
+                <img src="/assets/linkedin.png" alt="LinkedIn">
+            </a>
+            <a href="https://github.com/agastyaa-nar" target="_blank">
+                <img src="/assets/github.png" alt="GitHub">
+            </a>
+        </div>  
+        <p>&copy; 2025 Dhanar Agastya Rakalangi. All rights reserved.</p> 
+    </footer>
+    <script src="js/script.js"></script>
+</body>
+</html>
