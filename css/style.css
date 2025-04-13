@@ -21,10 +21,8 @@ body {
 .main-logo {
     height: 50px;
     width: 50px;
-    background-image: url("assets/logo.gif");
     border-radius: 50%;
-    background-size: cover;
-    background-position: center;
+    object-fit: cover;
 }
 
 nav {
