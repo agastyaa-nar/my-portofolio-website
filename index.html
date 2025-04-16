@@ -14,10 +14,13 @@
     <!-- Header dan Nav Bar -->
     <header class="main-header">
         <!-- Logo -->
-        <img src="./assets/logo.gif" alt="Logo" class="main-logo" />
+        <img src="./assets/logo.gif" alt="Logo" class="main-logo" id="main-logo" />
+
+        <!-- Menu Toggle Button -->
+        <button class="menu-toggle" onclick="toggleMenu()">☰</button>
 
         <!-- Navigation Bar -->
-        <nav aria-label="Main navigation">
+        <nav id="main-nav" aria-label="Main navigation">
             <a href="#home-section">Home</a>
             <a href="#about-section">About</a>
             <a href="#portfolio-section">Portfolio</a>
@@ -35,7 +38,12 @@
             </header>
             
             <!-- Banner Content -->
-            <div class="banner-img"></div>
+            <div class="banner-container">
+                <div class="banner-img pic-1"></div>
+                <div class="banner-img pic-2"></div>
+                <div class="banner-img pic-3"></div>
+                <div class="banner-img pic-4"></div>
+            </div>
 
             <!-- Section Content -->
             <article class="section-content"> 
