@@ -375,5 +375,16 @@ html {
     body.nav-open .main-logo {
         display: none;
     }
-  }
+
+    .contact-form label {
+        font-size: 14px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+        font-size: 14px;
+        width: 100%;
+    }
+
+}
   
