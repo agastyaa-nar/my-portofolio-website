@@ -380,11 +380,9 @@ html {
         font-size: 14px;
     }
 
-    .contact-form input,
     .contact-form textarea {
         font-size: 14px;
         width: 100%;
     }
-
 }
   
