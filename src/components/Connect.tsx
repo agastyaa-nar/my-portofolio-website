@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
-import { Send } from "lucide-react";
+import { Send, CheckCircle, AlertCircle, Loader2 } from "lucide-react";
 
 export const Connect = () => {
   const [formData, setFormData] = useState({
@@ -11,23 +11,82 @@ export const Connect = () => {
     message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [connectionStatus, setConnectionStatus] = useState<'checking' | 'connected' | 'error'>('checking');
+
+  // Check database connection on component mount
+  useEffect(() => {
+    const checkConnection = async () => {
+      try {
+        const { error } = await supabase
+          .from('contact_messages')
+          .select('count', { count: 'exact', head: true });
+        
+        if (error) throw error;
+        setConnectionStatus('connected');
+      } catch (error) {
+        console.error('Database connection error:', error);
+        setConnectionStatus('error');
+      }
+    };
+
+    checkConnection();
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
 
+    // Basic validation
+    if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {
+      toast.error("Please fill in all fields.");
+      setIsSubmitting(false);
+      return;
+    }
+
+    // Email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(formData.email)) {
+      toast.error("Please enter a valid email address.");
+      setIsSubmitting(false);
+      return;
+    }
+
     try {
-      const { error } = await supabase
+      const { data, error } = await supabase
         .from("contact_messages")
-        .insert([formData]);
+        .insert([{
+          name: formData.name.trim(),
+          email: formData.email.trim(),
+          message: formData.message.trim()
+        }])
+        .select();
 
-      if (error) throw error;
+      if (error) {
+        console.error("Supabase error:", error);
+        throw error;
+      }
 
-      toast.success("Message sent successfully! I'll get back to you soon.");
+      console.log("Message sent successfully:", data);
+      toast.success("🎉 Message sent successfully! I'll get back to you soon.", {
+        duration: 5000,
+      });
       setFormData({ name: "", email: "", message: "" });
-    } catch (error) {
+    } catch (error: unknown) {
       console.error("Error sending message:", error);
-      toast.error("Failed to send message. Please try again.");
+      
+      // More specific error messages
+      const errorMessage = error instanceof Error ? error.message : String(error);
+      const errorCode = error && typeof error === 'object' && 'code' in error ? error.code : null;
+      
+      if (errorMessage.includes("Failed to fetch")) {
+        toast.error("❌ Network error. Please check your internet connection and try again.");
+      } else if (errorMessage.includes("JWT")) {
+        toast.error("❌ Authentication error. Please refresh the page and try again.");
+      } else if (errorCode === "PGRST116") {
+        toast.error("❌ Database connection error. Please try again later.");
+      } else {
+        toast.error(`❌ Failed to send message: ${errorMessage || "Unknown error"}. Please try again.`);
+      }
     } finally {
       setIsSubmitting(false);
     }
@@ -50,7 +109,29 @@ export const Connect = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-4 neon-text">Let's Connect</h2>
-          <p className="text-muted-foreground text-lg">Have a project in mind? Let's talk about it</p>
+          <p className="text-muted-foreground text-lg mb-4">Have a project in mind? Let's talk about it</p>
+          
+          {/* Connection Status Indicator */}
+          <div className="flex items-center justify-center gap-2 text-sm">
+            {connectionStatus === 'checking' && (
+              <>
+                <Loader2 className="w-4 h-4 animate-spin text-muted-foreground" />
+                <span className="text-muted-foreground">Connecting to database...</span>
+              </>
+            )}
+            {connectionStatus === 'connected' && (
+              <>
+                <CheckCircle className="w-4 h-4 text-green-500" />
+                <span className="text-green-500">Database connected</span>
+              </>
+            )}
+            {connectionStatus === 'error' && (
+              <>
+                <AlertCircle className="w-4 h-4 text-red-500" />
+                <span className="text-red-500">Database connection failed</span>
+              </>
+            )}
+          </div>
         </motion.div>
 
         <motion.form
@@ -110,14 +191,37 @@ export const Connect = () => {
           </div>
 
           <motion.button
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
+            whileHover={{ scale: connectionStatus === 'connected' && !isSubmitting ? 1.02 : 1 }}
+            whileTap={{ scale: connectionStatus === 'connected' && !isSubmitting ? 0.98 : 1 }}
             type="submit"
-            disabled={isSubmitting}
-            className="w-full px-6 sm:px-8 py-3 sm:py-4 rounded-lg bg-primary text-primary-foreground font-semibold hover:opacity-90 transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 text-sm sm:text-base"
+            disabled={isSubmitting || connectionStatus !== 'connected'}
+            className={`w-full px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold transition-all flex items-center justify-center gap-2 text-sm sm:text-base ${
+              connectionStatus === 'connected' && !isSubmitting
+                ? 'bg-primary text-primary-foreground hover:opacity-90'
+                : 'bg-muted text-muted-foreground cursor-not-allowed'
+            }`}
           >
-            {isSubmitting ? "Sending..." : "Send Message"}
-            <Send className="w-4 h-4 sm:w-5 sm:h-5" />
+            {isSubmitting ? (
+              <>
+                <Loader2 className="w-4 h-4 sm:w-5 sm:h-5 animate-spin" />
+                Sending...
+              </>
+            ) : connectionStatus === 'error' ? (
+              <>
+                <AlertCircle className="w-4 h-4 sm:w-5 sm:h-5" />
+                Database Unavailable
+              </>
+            ) : connectionStatus === 'checking' ? (
+              <>
+                <Loader2 className="w-4 h-4 sm:w-5 sm:h-5 animate-spin" />
+                Connecting...
+              </>
+            ) : (
+              <>
+                Send Message
+                <Send className="w-4 h-4 sm:w-5 sm:h-5" />
+              </>
+            )}
           </motion.button>
         </motion.form>
       </div>
