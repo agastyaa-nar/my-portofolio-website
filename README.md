@@ -98,7 +98,7 @@ The application will be available at `http://localhost:8080`
 ## 🏗️ Project Structure
 
 ```
-Narr-Homepage/
+my-portofolio-website/
 ├── public/                 # Static assets
 │   ├── logos/             # Technology logos
 │   └── projects/          # Project screenshots
