@@ -67,7 +67,7 @@ export const Connect = () => {
       }
 
       console.log("Message sent successfully:", data);
-      toast.success("🎉 Message sent successfully! I'll get back to you soon.", {
+      toast.success("Message sent successfully! I'll get back to you soon.", {
         duration: 5000,
       });
       setFormData({ name: "", email: "", message: "" });

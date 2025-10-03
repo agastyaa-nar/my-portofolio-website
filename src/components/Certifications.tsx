@@ -192,7 +192,7 @@ const CertCard = ({ cert, index }: { cert: typeof certifications[0]; index: numb
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
       transition={{ duration: 0.6, delay: index * 0.1, ease: "easeOut" }}
       whileHover={{ scale: 1.05 }}
-      className="bg-card border border-border rounded-xl p-4 sm:p-6 hover:shadow-xl transition-all dark:hover:glow-purple"
+      className="bg-card border border-border rounded-xl p-4 sm:p-6 hover:glow-magenta transition-all dark:hover:glow-cyan"
     >
       {/* Header logo & info */}
       <div className="flex items-start gap-3 sm:gap-4 mb-4">

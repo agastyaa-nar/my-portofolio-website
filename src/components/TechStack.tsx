@@ -9,15 +9,15 @@ const techStacks = [
   { name: "PostgreSQL", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" },
   { name: "MongoDB", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" },
   { name: "Next.js", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" },
-  { name: "Vue.js", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg" },
+  { name: "Vite", logo: "https://vitejs.dev/logo.svg" },
   { name: "Tailwind CSS", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" },
-  { name: "Firebase", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg" },
   { name: "Docker", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" },
   { name: "Git", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" },
   { name: "AWS", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" },
   { name: "Bootstrap", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" },
   { name: "jQuery", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jquery/jquery-original.svg" },
 ];
+
 
 export const TechStack = () => {
   return (
@@ -59,8 +59,7 @@ export const TechStack = () => {
                     src={tech.logo}
                     alt={tech.name}
                     className="h-10 sm:h-12 md:h-14 lg:h-16 object-contain transition-transform duration-300 hover:scale-125
-                               hover:drop-shadow-[0_0_20px_rgba(139,92,246,0.9)]
-                               dark:hover:drop-shadow-[0_0_25px_rgba(168,85,247,1)]"
+                               hover:drop-shadow-[0_0_10px_magenta] dark:hover:drop-shadow-[0_0_10px_cyan]"
                   />
                 </div>
               ))}

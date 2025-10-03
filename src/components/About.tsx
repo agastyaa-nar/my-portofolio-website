@@ -59,12 +59,7 @@ export const About = () => {
           transition={{ delay: 0.4 }}
           className="text-base sm:text-lg md:text-xl lg:text-2xl text-muted-foreground leading-relaxed px-4"
         >
-          I am an entry-level full-stack developer with a background in
-          Mathematics at Sepuluh Nopember Institute of Technology. Passionate
-          about building modern web applications, I enjoy solving problems
-          creatively and turning ideas into clean, user-friendly digital
-          experiences. My main focus is on web development, and I plan to expand
-          into mobile development in the future.
+          I am an entry-level back-end developer with a background in Mathematics at Sepuluh Nopember Institute of Technology. Passionate about designing and building reliable server-side systems, I enjoy solving problems creatively and turning ideas into scalable, secure, and efficient solutions. My main focus is on back-end development, and I plan to expand into mobile development in the future.
         </motion.p>
 
         {/* Buttons */}
@@ -76,40 +71,40 @@ export const About = () => {
           className="mt-8 flex flex-col sm:flex-row gap-4 justify-center px-4"
         >
           {/* Contact Button */}
-          <button className="w-full sm:w-auto px-6 sm:px-8 py-3 rounded-lg bg-primary text-primary-foreground hover:opacity-90 transition-all hover:glow-cyan hover:scale-105">
+          <button className="w-full sm:w-auto px-6 sm:px-8 py-3 rounded-lg bg-primary text-primary-foreground hover:opacity-90 transition-all hover:dark:glow-cyan hover:scale-105 hover:glow-magenta">
             <a href="#connect">Contact Me</a>
           </button>
 
           {/* Curriculum Vitae Modal */}
           <Dialog>
             <DialogTrigger asChild>
-              <button className="w-full sm:w-auto px-6 sm:px-8 py-3 rounded-lg border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all hover:scale-105 hover:glow-cyan">
+              <button className="w-full sm:w-auto px-6 sm:px-8 py-3 rounded-lg border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all hover:scale-105 hover:dark:glow-cyan hover:glow-magenta">
                 Curriculum Vitae
               </button>
             </DialogTrigger>
             <DialogContent className="max-w-6xl w-[95vw] sm:w-full h-[90vh] flex flex-col p-0 overflow-hidden">
               {/* Header dengan tombol download & fullscreen */}
-              <DialogHeader className="flex flex-col sm:flex-row justify-between items-start sm:items-center px-4 py-3 border-b border-border bg-gradient-to-r from-primary/30 to-accent/30 gap-3 sm:gap-0">
-                <DialogTitle className="text-base sm:text-lg font-bold">
+              <DialogHeader className="flex flex-row justify-between items-center px-4 py-3 border-b border-border bg-gradient-to-r from-primary/30 to-accent/30 relative">
+                <DialogTitle className="text-base sm:text-lg font-bold flex-1 pr-4">
                   My Curriculum Vitae
                 </DialogTitle>
-                <div className="flex flex-col sm:flex-row gap-2 w-full sm:w-auto">
+                <div className="flex flex-row gap-2 items-center mr-8">
                   <a
                     href="/cv.pdf"
                     download="Dhanar-Agastya-Rakalangi-CV.pdf"
-                    className="flex items-center justify-center gap-2 px-3 sm:px-4 py-2 rounded-lg bg-primary text-primary-foreground hover:opacity-90 transition-all hover:scale-105 text-sm"
+                    className="flex items-center justify-center gap-2 px-3 sm:px-4 py-2 rounded-lg bg-primary text-primary-foreground hover:opacity-90 transition-all hover:scale-105 text-sm whitespace-nowrap"
                   >
                     <Download className="w-4 h-4" />
-                    Download
+                    <span className="hidden sm:inline">Download</span>
                   </a>
                   <a
                     href="/cv.pdf"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-2 px-3 sm:px-4 py-2 rounded-lg border border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all hover:scale-105 text-sm"
+                    className="flex items-center justify-center gap-2 px-3 sm:px-4 py-2 rounded-lg border border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all hover:scale-105 text-sm whitespace-nowrap"
                   >
                     <Maximize className="w-4 h-4" />
-                    Fullscreen
+                    <span className="hidden sm:inline">Fullscreen</span>
                   </a>
                 </div>
               </DialogHeader>

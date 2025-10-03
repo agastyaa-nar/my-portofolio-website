@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion, easeOut } from "framer-motion";
 import { ExternalLink, Github } from "lucide-react";
 
 const techLogos: Record<string, string> = {
@@ -28,6 +28,7 @@ const techLogos: Record<string, string> = {
   CSS: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg",
   HTML: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg",
   Bootstrap: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg",
+  Vite: "https://vitejs.dev/logo.svg",
 };
 
 const projects = [
@@ -35,7 +36,7 @@ const projects = [
     title: "Study Tracker App",
     description:
       "Developed a web-based application that helps students track study activities and academic progress. Integrated IBM Granite AI for natural language processing, activity summarization, productivity pattern detection, and personalized study recommendations. Designed an interactive dashboard with charts, progress tracking, and calendar integration.",
-    tech: ["React", "Supabase", "PostgreSQL", "Zod", "shadcn/ui", "TypeScript", "Next.js"],
+    tech: ["React", "Supabase", "PostgreSQL", "Zod", "shadcn/ui", "TypeScript", "Next.js", "Vite"],
     demo: "https://study-mate-ai-one.vercel.app/",
     github: "https://github.com/agastyaa-nar/StudyMate-AI",
     image: "/projects/StudyTracker.png",
@@ -83,9 +84,10 @@ const cardVariants = {
   show: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.6, ease: "easeOut" },
+    transition: { duration: 0.6, ease: easeOut }, // pakai easing bawaan
   },
 };
+
 
 export const Projects = () => {
   return (
@@ -120,7 +122,7 @@ export const Projects = () => {
               variants={cardVariants}
               whileHover={{ y: -10, scale: 1.02 }}
               className="bg-card border border-border rounded-2xl overflow-hidden 
-                         min-h-[600px] sm:min-h-[650px] flex flex-col hover:shadow-2xl transition-all dark:hover:glow-magenta"
+                         min-h-[600px] sm:min-h-[650px] flex flex-col hover:glow-magenta transition-all dark:hover:glow-cyan"
             >
               {/* Thumbnail */}
               <div className="h-48 sm:h-56 w-full overflow-hidden">
