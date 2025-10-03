@@ -63,8 +63,8 @@ A modern, responsive personal portfolio website built with React, TypeScript, an
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/your-username/Narr-Homepage.git
-cd Narr-Homepage
+git clone https://github.com/your-username/my-portofolio-website.git
+cd my-portofolio-website
 ```
 
 ### 2. Install Dependencies
