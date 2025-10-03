@@ -1,10 +1,10 @@
-# Narr-Homepage
+# My Portofolio Website
 
 A modern, responsive personal portfolio website built with React, TypeScript, and Tailwind CSS. Features a futuristic neon design for dark mode and peaceful aesthetics for light mode, complete with interactive particle backgrounds and a contact form powered by Supabase.
 
 ## 🚀 Live Demo
 
-[View Live Portfolio](https://your-portfolio-url.com) *(Update with your actual deployment URL)*
+[View Live Portfolio](https://narr-curi.vercel.app/)
 
 ## ✨ Features
 
@@ -63,8 +63,8 @@ A modern, responsive personal portfolio website built with React, TypeScript, an
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/your-username/Narr-Homepage.git
-cd Narr-Homepage
+git clone https://github.com/your-username/my-portofolio-website.git
+cd my-portofolio-website
 ```
 
 ### 2. Install Dependencies
@@ -98,7 +98,7 @@ The application will be available at `http://localhost:8080`
 ## 🏗️ Project Structure
 
 ```
-Narr-Homepage/
+my-portofolio-website/
 ├── public/                 # Static assets
 │   ├── logos/             # Technology logos
 │   └── projects/          # Project screenshots
