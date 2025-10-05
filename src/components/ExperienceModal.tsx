@@ -70,15 +70,15 @@ export const ExperienceModal = ({ isOpen, onClose, experience }: ExperienceModal
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-5xl w-[95vw] sm:w-[90vw] lg:w-[80vw] max-h-[95vh] sm:max-h-[90vh] overflow-hidden bg-card/95 backdrop-blur-sm border-2 border-primary/30 shadow-2xl modal-content modal-transition">
+      <DialogContent className="max-w-5xl w-[98vw] sm:w-[90vw] lg:w-[80vw] max-h-[98vh] sm:max-h-[90vh] overflow-hidden bg-card/95 backdrop-blur-sm border-2 border-primary/30 shadow-2xl modal-content modal-transition">
         {/* Header Section */}
         <DialogHeader className="space-y-1 pb-2 border-b border-border/50 relative">
-          <div className="flex items-center gap-2 pr-12">
+          <div className="flex items-start gap-2 pr-12">
             <div className="p-1 rounded-md bg-gradient-to-br from-primary/20 to-primary/10 ring-1 ring-primary/20 flex-shrink-0">
               <img 
                 src={experience.logo} 
                 alt={`${experience.organization} logo`}
-                className="w-4 h-4 object-contain bg-white p-0.5 rounded-sm"
+                className="w-3 h-3 sm:w-4 sm:h-4 object-contain bg-white p-0.5 rounded-sm"
                 onError={(e) => {
                   const target = e.target as HTMLImageElement;
                   target.style.display = 'none';
@@ -86,17 +86,17 @@ export const ExperienceModal = ({ isOpen, onClose, experience }: ExperienceModal
                   if (fallback) fallback.style.display = 'block';
                 }}
               />
-              <div className="w-4 h-4 bg-gradient-to-r from-cyan-400 to-purple-500 rounded-sm hidden" />
+              <div className="w-3 h-3 sm:w-4 sm:h-4 bg-gradient-to-r from-cyan-400 to-purple-500 rounded-sm hidden" />
             </div>
-            <div className="flex-1 min-w-0">
-              <DialogTitle className="text-lg font-bold neon-text truncate">
-                {experience.title}
+            <div className="flex-1 min-w-0 overflow-hidden">
+              <DialogTitle className="text-sm sm:text-lg font-bold neon-text leading-tight">
+                <span className="block break-words">{experience.title}</span>
               </DialogTitle>
-              <div className="flex items-center gap-2 mt-0.5">
-                <DialogDescription className="text-primary font-semibold text-sm truncate">
+              <div className="flex flex-col sm:flex-row sm:items-center gap-0.5 sm:gap-2 mt-0.5">
+                <DialogDescription className="text-primary font-semibold text-xs sm:text-sm break-words">
                   {experience.organization}
                 </DialogDescription>
-                <Badge variant="secondary" className="text-xs flex-shrink-0">
+                <Badge variant="secondary" className="text-xs flex-shrink-0 hidden sm:inline-flex">
                   {experience.period}
                 </Badge>
               </div>
@@ -106,11 +106,11 @@ export const ExperienceModal = ({ isOpen, onClose, experience }: ExperienceModal
 
         {/* Content Section */}
         <div className="flex-1 overflow-hidden">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-6 h-full">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-3 lg:gap-6 h-full">
             {/* Left Column - Images */}
             {experience.images.length > 0 && (
               <div className="flex flex-col space-y-2">
-                <div className="relative h-48 sm:h-64 lg:h-72 overflow-hidden rounded-xl bg-muted/20 ring-2 ring-border/50 image-container">
+                <div className="relative h-40 xs:h-48 sm:h-64 lg:h-72 overflow-hidden rounded-lg sm:rounded-xl bg-muted/20 ring-1 sm:ring-2 ring-border/50 image-container">
                   <AnimatePresence mode="wait">
                     <motion.div
                       key={currentImageIndex}
@@ -175,14 +175,14 @@ export const ExperienceModal = ({ isOpen, onClose, experience }: ExperienceModal
 
                 {/* Image Navigation */}
                 {experience.images.length > 1 && (
-                  <div className="flex flex-col space-y-2">
+                  <div className="flex flex-col space-y-1 sm:space-y-2">
                     {/* Dots indicator */}
-                    <div className="flex justify-center gap-2">
+                    <div className="flex justify-center gap-1.5 sm:gap-2">
                       {experience.images.map((_, index) => (
                         <motion.button
                           key={index}
                           onClick={() => handleDotClick(index)}
-                          className={`relative w-2.5 h-2.5 rounded-full transition-all duration-300 ${
+                          className={`relative w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full transition-all duration-300 ${
                             index === currentImageIndex
                               ? 'bg-primary scale-125'
                               : 'bg-muted-foreground/40 hover:bg-muted-foreground/70'
@@ -202,20 +202,20 @@ export const ExperienceModal = ({ isOpen, onClose, experience }: ExperienceModal
                     </div>
 
                     {/* Controls */}
-                    <div className="flex items-center justify-center gap-4">
+                    <div className="flex flex-col xs:flex-row items-center justify-center gap-2 xs:gap-4">
                       <Button
                         variant="outline"
                         size="sm"
                         onClick={() => setIsAutoPlaying(!isAutoPlaying)}
-                        className="flex items-center gap-2"
+                        className="flex items-center gap-1.5 text-xs"
                       >
                         {isAutoPlaying ? <Pause className="h-3 w-3" /> : <Play className="h-3 w-3" />}
-                        <span className="text-xs">
+                        <span className="text-xs hidden xs:inline">
                           {isAutoPlaying ? 'Pause' : 'Play'}
                         </span>
                       </Button>
-                      <span className="text-xs text-muted-foreground">
-                        Click image to toggle auto-play
+                      <span className="text-xs text-muted-foreground text-center xs:text-left">
+                        Click image to toggle
                       </span>
                     </div>
                   </div>
@@ -224,9 +224,9 @@ export const ExperienceModal = ({ isOpen, onClose, experience }: ExperienceModal
             )}
 
             {/* Right Column - Description Only */}
-            <div className="flex flex-col justify-start">
-              <div className="prose prose-lg max-w-none dark:prose-invert">
-                <p className="text-muted-foreground leading-relaxed text-base sm:text-lg">
+            <div className="flex flex-col justify-start overflow-hidden">
+              <div className="prose prose-sm sm:prose-lg max-w-none dark:prose-invert overflow-hidden">
+                <p className="text-muted-foreground leading-relaxed text-sm sm:text-base lg:text-lg break-words">
                   {experience.description}
                 </p>
               </div>
