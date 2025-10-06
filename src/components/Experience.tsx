@@ -147,7 +147,7 @@ export const Experience = () => {
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ["start 0.2", "end 0.9"],
+    offset: ["start end", "end start"],
   });
 
   // bikin transisi lebih smooth dengan spring
@@ -191,16 +191,18 @@ export const Experience = () => {
                       dark:from-cyan-400 dark:via-purple-500 dark:to-pink-500
                       rounded-full shadow-[0_0_15px_rgba(0,255,255,0.7)]
                       dark:shadow-[0_0_15px_rgba(255,0,255,0.7)]
-                      animate-[gradientShift_6s_linear_infinite] hidden md:block"
+                      animate-[gradientShift_6s_linear_infinite] hidden md:block
+                      z-10"
           />
 
           {/* Bulatan neon di ujung garis - hidden on mobile */}
           <motion.div
             style={{ top: lineHeight }}
-            className="absolute left-1/2 -translate-x-1/2 w-6 h-6 rounded-full 
+            className="absolute left-1/2 -translate-x-1/2 -translate-y-1/2 w-6 h-6 rounded-full 
                       bg-pink-500 shadow-[0_0_25px_rgba(255,0,255,0.9)]
                       dark:bg-cyan-400 dark:shadow-[0_0_25px_rgba(0,255,255,0.9)]
-                      animate-pulse hidden md:block"
+                      animate-pulse hidden md:block
+                      z-20"
           />
 
           {experiences.map((exp, index) => (
