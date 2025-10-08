@@ -11,7 +11,7 @@ const techLogos: Record<string, string> = {
   MongoDB: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg",
   "Vue.js": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg",
   Firebase: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg",
-  "Tailwind CSS": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg",
+  "Tailwind CSS": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg",
   D3: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/d3js/d3js-original.svg",
   Python: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
   FastAPI: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg",
@@ -29,14 +29,26 @@ const techLogos: Record<string, string> = {
   HTML: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg",
   Bootstrap: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg",
   Vite: "https://vitejs.dev/logo.svg",
+  PHP: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg",
+  Docker: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg",
+  JWT: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/jsonwebtokens.svg",
 };
 
 const projects = [
   {
+    title: "Arch Store",
+    description:
+      "Arch Store is a modern and scalable e-commerce platform built with React (Vite + Tailwind CSS) for a fast, responsive frontend and PHP (PDO + JWT) backend connected to a PostgreSQL database. Designed with a modular architecture and clean REST API, it enables smooth product management, secure authentication, and real-time order tracking.",
+    tech: ["React", "TypeScript", "Vite", "Tailwind CSS", "PHP", "PostgreSQL", "Docker", "JWT"],
+    demo: "https://narr-online-store.vercel.app/",
+    github: "https://github.com/agastyaa-nar/online-store",
+    image: "/projects/ArchStore.png",
+  },
+  {
     title: "Study Tracker App",
     description:
       "Developed a web-based application that helps students track study activities and academic progress. Integrated IBM Granite AI for natural language processing, activity summarization, productivity pattern detection, and personalized study recommendations. Designed an interactive dashboard with charts, progress tracking, and calendar integration.",
-    tech: ["React", "Supabase", "PostgreSQL", "Zod", "shadcn/ui", "TypeScript", "Next.js", "Vite"],
+    tech: ["React", "Supabase", "PostgreSQL", "Zod", "shadcn/ui", "TypeScript", "Next.js", "Vite", "Tailwind CSS"],
     demo: "https://study-mate-ai-one.vercel.app/",
     github: "https://github.com/agastyaa-nar/StudyMate-AI",
     image: "/projects/StudyTracker.png",
@@ -129,7 +141,7 @@ export const Projects = () => {
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                  className="w-full h-full object-contain transition-transform duration-500 hover:scale-110"
                 />
               </div>
 
