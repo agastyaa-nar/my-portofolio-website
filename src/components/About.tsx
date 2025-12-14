@@ -32,7 +32,7 @@ export const About = () => {
           <div className="w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 mx-auto rounded-full bg-gradient-to-br from-primary via-secondary to-accent p-1 animate-float">
             <div className="w-full h-full rounded-full bg-card flex items-center justify-center text-6xl">
               <img
-                src="/profile.png"
+                src="/profile1.jpeg"
                 alt="Profile"
                 className="w-full h-full object-cover rounded-full"
               />
