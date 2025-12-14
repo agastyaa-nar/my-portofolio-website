@@ -40,7 +40,7 @@ const projects = [
     description:
       "Arch Store is a modern and scalable e-commerce platform built with React (Vite + Tailwind CSS) for a fast, responsive frontend and PHP (PDO + JWT) backend connected to a PostgreSQL database. Designed with a modular architecture and clean REST API, it enables smooth product management, secure authentication, and real-time order tracking.",
     tech: ["React", "TypeScript", "Vite", "Tailwind CSS", "PHP", "PostgreSQL", "Docker", "JWT"],
-    demo: "https://narr-online-store.vercel.app/",
+    demo: "https://archonline-store.vercel.app/",
     github: "https://github.com/agastyaa-nar/online-store",
     image: "/projects/ArchStore.png",
   },
