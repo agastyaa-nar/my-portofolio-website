@@ -1,3 +1,4 @@
+import { useRef, useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
 const techStacks = [
@@ -11,8 +12,44 @@ const techStacks = [
   { name: "jQuery", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jquery/jquery-original.svg" },
 ];
 
-
 export const TechStack = () => {
+  const trackRef = useRef<HTMLDivElement>(null);
+  const [copyWidth, setCopyWidth] = useState(0);
+
+  useEffect(() => {
+    let rafId: number;
+    let timer: ReturnType<typeof setTimeout>;
+
+    const measure = () => {
+      const track = trackRef.current;
+      if (!track || track.children.length < 2) return;
+      // Distance from start of copy[0] to start of copy[1] = exact pixel offset for seamless loop
+      setCopyWidth(
+        (track.children[1] as HTMLElement).offsetLeft -
+        (track.children[0] as HTMLElement).offsetLeft
+      );
+    };
+
+    rafId = requestAnimationFrame(measure);
+
+    const onResize = () => {
+      clearTimeout(timer);
+      timer = setTimeout(() => { rafId = requestAnimationFrame(measure); }, 150);
+    };
+
+    window.addEventListener("resize", onResize);
+    return () => {
+      cancelAnimationFrame(rafId);
+      window.removeEventListener("resize", onResize);
+      clearTimeout(timer);
+    };
+  }, []);
+
+  // Always enough copies to fill 2× the viewport — auto-adapts when tech stacks are added
+  const copies = copyWidth > 0
+    ? Math.max(4, Math.ceil((window.innerWidth * 2) / copyWidth) + 2)
+    : 4;
+
   return (
     <section className="py-16 sm:py-20 border-y border-border bg-muted/30 relative">
       {/* Title */}
@@ -39,8 +76,23 @@ export const TechStack = () => {
 
       {/* Infinite scroll logos */}
       <div className="relative overflow-hidden -my-8 py-16">
-        <div className="flex animate-scroll-left w-max gap-8 sm:gap-10 md:gap-12">
-          {[...Array(2)].map((_, loopIndex) => (
+        {/*
+         * key={copyWidth}: restarts animation cleanly whenever the measured
+         * copy width changes (e.g. on viewport resize across breakpoints)
+         */}
+        <motion.div
+          key={copyWidth}
+          ref={trackRef}
+          className="flex w-max gap-8 sm:gap-10 md:gap-12"
+          animate={copyWidth > 0 ? { x: [0, -copyWidth] } : {}}
+          transition={{
+            duration: 30,
+            ease: "linear",
+            repeat: Infinity,
+            repeatType: "loop",
+          }}
+        >
+          {[...Array(copies)].map((_, loopIndex) => (
             <div key={loopIndex} className="flex gap-8 sm:gap-10 md:gap-12 px-4 sm:px-6">
               {techStacks.map((tech, index) => (
                 <div
@@ -58,7 +110,7 @@ export const TechStack = () => {
               ))}
             </div>
           ))}
-        </div>
+        </motion.div>
 
         {/* Gradient mask kiri */}
         <div className="absolute top-0 left-0 w-16 sm:w-20 md:w-24 h-full bg-gradient-to-r from-background to-transparent pointer-events-none z-20" />
