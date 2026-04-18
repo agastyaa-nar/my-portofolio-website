@@ -4,44 +4,28 @@ import { Award } from "lucide-react";
 
 const certifications = [
   { 
-    name: "Blockchain Basics", 
-    issuer: "Great Learning", 
-    year: "2024", 
-    image: "/certs/1.png",
-    logo: "/logos/GL.png",
-    pdf: "/pdfs/1.pdf"
+    name: "AWS Back-End Academy Expert Program", 
+    issuer: "AWS Training and Certification", 
+    year: "2025", 
+    image: "/certs/25.png",
+    logo: "/logos/Dicoding.png",
+    pdf: "/pdfs/25.pdf"
   },
   { 
-    name: "Front End Development - CSS", 
-    issuer: "Great Learning", 
-    year: "2024", 
-    image: "/certs/2.png",
-    logo: "/logos/GL.png",
-    pdf: "/pdfs/2.pdf"
+    name: "AWS Back-End Academy Intermediate Program", 
+    issuer: "AWS Training and Certification", 
+    year: "2025", 
+    image: "/certs/24.png",
+    logo: "/logos/Dicoding.png",
+    pdf: "/pdfs/24.pdf"
   },
   { 
-    name: "Data Science Foundations", 
-    issuer: "Great Learning", 
-    year: "2024", 
-    image: "/certs/3.png",
-    logo: "/logos/GL.png",
-    pdf: "/pdfs/3.pdf"
-  },
-  { 
-    name: "Front End Development - HTML", 
-    issuer: "Great Learning", 
-    year: "2024", 
-    image: "/certs/4.png",
-    logo: "/logos/GL.png",
-    pdf: "/pdfs/4.pdf"
-  },
-  { 
-    name: "Python Fundamentals for Beginners", 
-    issuer: "Great Learning", 
-    year: "2024", 
-    image: "/certs/5.png",
-    logo: "/logos/GL.png",
-    pdf: "/pdfs/5.pdf"
+    name: "Menjadi Back-End Developer Expert dengan Javascript", 
+    issuer: "Dicoding Academy", 
+    year: "2025", 
+    image: "/certs/23.png",
+    logo: "/logos/Dicoding.png",
+    pdf: "/pdfs/23.pdf"
   },
   { 
     name: "Architecting on AWS (Membangun Arsitektur Cloud di AWS)", 
@@ -179,6 +163,48 @@ const certifications = [
     logo: "/logos/RevoU.png",
     pdf: "/pdfs/22.pdf"
   },
+
+  // 2024
+  { 
+    name: "Blockchain Basics", 
+    issuer: "Great Learning", 
+    year: "2024", 
+    image: "/certs/1.png",
+    logo: "/logos/GL.png",
+    pdf: "/pdfs/1.pdf"
+  },
+  { 
+    name: "Front End Development - CSS", 
+    issuer: "Great Learning", 
+    year: "2024", 
+    image: "/certs/2.png",
+    logo: "/logos/GL.png",
+    pdf: "/pdfs/2.pdf"
+  },
+  { 
+    name: "Data Science Foundations", 
+    issuer: "Great Learning", 
+    year: "2024", 
+    image: "/certs/3.png",
+    logo: "/logos/GL.png",
+    pdf: "/pdfs/3.pdf"
+  },
+  { 
+    name: "Front End Development - HTML", 
+    issuer: "Great Learning", 
+    year: "2024", 
+    image: "/certs/4.png",
+    logo: "/logos/GL.png",
+    pdf: "/pdfs/4.pdf"
+  },
+  { 
+    name: "Python Fundamentals for Beginners", 
+    issuer: "Great Learning", 
+    year: "2024", 
+    image: "/certs/5.png",
+    logo: "/logos/GL.png",
+    pdf: "/pdfs/5.pdf"
+  }
 ];
 
 const CertCard = ({ cert, index }: { cert: typeof certifications[0]; index: number }) => {

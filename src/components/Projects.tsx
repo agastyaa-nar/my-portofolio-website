@@ -36,24 +36,6 @@ const techLogos: Record<string, string> = {
 
 const projects = [
   {
-    title: "Arch Store",
-    description:
-      "Arch Store is a modern and scalable e-commerce platform built with React (Vite + Tailwind CSS) for a fast, responsive frontend and PHP (PDO + JWT) backend connected to a PostgreSQL database. Designed with a modular architecture and clean REST API, it enables smooth product management, secure authentication, and real-time order tracking.",
-    tech: ["React", "TypeScript", "Vite", "Tailwind CSS", "PHP", "PostgreSQL", "Docker", "JWT"],
-    demo: "https://archonline-store.vercel.app/",
-    github: "https://github.com/agastyaa-nar/online-store",
-    image: "/projects/ArchStore.png",
-  },
-  {
-    title: "Study Tracker App",
-    description:
-      "Developed a web-based application that helps students track study activities and academic progress. Integrated IBM Granite AI for natural language processing, activity summarization, productivity pattern detection, and personalized study recommendations. Designed an interactive dashboard with charts, progress tracking, and calendar integration.",
-    tech: ["React", "Supabase", "PostgreSQL", "Zod", "shadcn/ui", "TypeScript", "Next.js", "Vite", "Tailwind CSS"],
-    demo: "https://study-mate-ai-one.vercel.app/",
-    github: "https://github.com/agastyaa-nar/StudyMate-AI",
-    image: "/projects/StudyTracker.png",
-  },
-  {
     title: "Notes App Back-End",
     description:
       "A back-end service for a note-taking application, designed with a focus on scalability, reliability, and clean code practices. The system provides RESTful APIs for managing notes, user authentication, and secure data handling.",
