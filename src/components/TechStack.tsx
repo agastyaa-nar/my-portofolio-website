@@ -49,15 +49,15 @@ export const TechStack = () => {
     : 4;
 
   return (
-    <section className="py-16 sm:py-20 border-y border-border bg-muted/30 relative">
+    <section className="py-12 sm:py-16 md:py-20 border-y border-border bg-muted/30 relative">
       {/* Title */}
-      <div className="container mx-auto text-center mb-12">
+      <div className="container mx-auto px-4 text-center mb-8 sm:mb-12">
         <motion.h2
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-4xl md:text-5xl font-bold neon-text"
+          className="text-3xl sm:text-4xl md:text-5xl font-bold neon-text"
         >
           Tech Stack
         </motion.h2>
@@ -66,7 +66,7 @@ export const TechStack = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.2 }}
-          className="text-muted-foreground mt-4 text-lg"
+          className="text-muted-foreground mt-2 sm:mt-4 text-sm sm:text-base md:text-lg"
         >
           Tools & technologies I often use to build projects
         </motion.p>
@@ -75,10 +75,9 @@ export const TechStack = () => {
       {/* Infinite scroll logos */}
       <div className="relative overflow-hidden -my-8 py-16">
         {/*
-         * No gap on the outer flex — spacing between copies is handled by
-         * px-4 sm:px-5 md:px-6 on each copy div (= half of the respective
-         * inner gap-8/10/12), so the seam between copies is visually identical
-         * to gaps between items within a copy.
+         * No gap on outer flex — gap between copies = 2 × px (half of inner gap)
+         * so the seam is visually identical to gaps between items within a copy.
+         * gap-6/px-3 · gap-8/px-4 · gap-10/px-5 · gap-12/px-6
          */}
         <motion.div
           ref={trackRef}
@@ -91,7 +90,7 @@ export const TechStack = () => {
           }
         >
           {[...Array(copies)].map((_, loopIndex) => (
-            <div key={loopIndex} className="flex gap-8 sm:gap-10 md:gap-12 px-4 sm:px-5 md:px-6">
+            <div key={loopIndex} className="flex gap-6 sm:gap-8 md:gap-10 lg:gap-12 px-3 sm:px-4 md:px-5 lg:px-6">
               {techStacks.map((tech, index) => (
                 <div
                   key={`${loopIndex}-${index}`}
@@ -101,7 +100,7 @@ export const TechStack = () => {
                   <img
                     src={tech.logo}
                     alt={tech.name}
-                    className="h-10 sm:h-12 md:h-14 lg:h-16 object-contain transition-transform duration-300 hover:scale-125
+                    className="h-8 sm:h-10 md:h-12 lg:h-14 object-contain transition-transform duration-300 hover:scale-125
                                hover:drop-shadow-[0_0_10px_magenta] dark:hover:drop-shadow-[0_0_10px_cyan]"
                   />
                 </div>
@@ -111,9 +110,9 @@ export const TechStack = () => {
         </motion.div>
 
         {/* Gradient mask kiri */}
-        <div className="absolute top-0 left-0 w-16 sm:w-20 md:w-24 h-full bg-gradient-to-r from-background to-transparent pointer-events-none z-20" />
+        <div className="absolute top-0 left-0 w-10 sm:w-16 md:w-24 h-full bg-gradient-to-r from-background to-transparent pointer-events-none z-20" />
         {/* Gradient mask kanan */}
-        <div className="absolute top-0 right-0 w-16 sm:w-20 md:w-24 h-full bg-gradient-to-l from-background to-transparent pointer-events-none z-20" />
+        <div className="absolute top-0 right-0 w-10 sm:w-16 md:w-24 h-full bg-gradient-to-l from-background to-transparent pointer-events-none z-20" />
       </div>
     </section>
   );

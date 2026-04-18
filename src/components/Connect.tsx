@@ -62,18 +62,18 @@ export const Connect = () => {
   };
 
   return (
-    <section id="connect" className="py-16 sm:py-20 px-4">
+    <section id="connect" className="py-12 sm:py-16 md:py-20 px-4">
       <div className="container mx-auto max-w-3xl">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-10 sm:mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 neon-text">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4 neon-text">
             Let's Connect
           </h2>
-          <p className="text-muted-foreground text-lg mb-4">
+          <p className="text-muted-foreground text-sm sm:text-base md:text-lg mb-3 sm:mb-4">
             Have a project in mind? Let's talk about it
           </p>
 
@@ -161,7 +161,7 @@ export const Connect = () => {
               value={formData.message}
               onChange={handleChange}
               required
-              rows={6}
+              rows={5}
               className="w-full px-4 py-3 rounded-lg bg-card border border-border text-foreground focus:outline-none focus:ring-2 focus:ring-primary transition-all resize-none"
               placeholder="Tell me about your project..."
             />

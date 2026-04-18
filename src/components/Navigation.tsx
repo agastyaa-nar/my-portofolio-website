@@ -34,7 +34,7 @@ export const Navigation = () => {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          className="text-2xl font-bold neon-text"
+          className="text-xl sm:text-2xl font-bold neon-text"
         >
           Portfolio
         </motion.div>
@@ -113,7 +113,7 @@ export const Navigation = () => {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "tween", duration: 0.3 }}
-              className="fixed right-0 top-0 h-full w-80 bg-card border-l-2 border-primary/30 shadow-2xl mobile-menu-panel"
+              className="fixed right-0 top-0 h-full w-[85vw] max-w-sm bg-card border-l-2 border-primary/30 shadow-2xl mobile-menu-panel"
               style={{ 
                 zIndex: 10000,
                 backgroundColor: 'hsl(var(--card))',

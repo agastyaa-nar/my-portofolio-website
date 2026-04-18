@@ -238,7 +238,7 @@ const CertCard = ({ cert, index }: { cert: typeof certifications[0]; index: numb
 
       {/* Sertifikat klik → buka PDF */}
       <div className="flex justify-center cursor-pointer">
-        <a href={cert.pdf} target="_blank" rel="noopener noreferrer" className="w-full h-48 sm:h-56">
+        <a href={cert.pdf} target="_blank" rel="noopener noreferrer" className="w-full h-36 sm:h-44 md:h-52">
           <div className="w-full h-full rounded-md border bg-background flex items-center justify-center overflow-hidden">
             <img
               src={cert.image}
@@ -254,17 +254,17 @@ const CertCard = ({ cert, index }: { cert: typeof certifications[0]; index: numb
 
 export const Certifications = () => {
   return (
-    <section id="certifications" className="py-16 sm:py-20 px-4 bg-muted/20">
+    <section id="certifications" className="py-12 sm:py-16 md:py-20 px-4 bg-muted/20">
       <div className="container mx-auto max-w-7xl">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: false }}
           transition={{ duration: 0.7, ease: "easeOut" }}
-          className="text-center mb-16"
+          className="text-center mb-10 sm:mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 neon-text">Certifications</h2>
-          <p className="text-muted-foreground text-lg">Professional credentials and achievements</p>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4 neon-text">Certifications</h2>
+          <p className="text-muted-foreground text-sm sm:text-base md:text-lg">Professional credentials and achievements</p>
         </motion.div>
 
         {/* grid responsive */}
