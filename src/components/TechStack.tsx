@@ -23,7 +23,6 @@ export const TechStack = () => {
     const measure = () => {
       const track = trackRef.current;
       if (!track || track.children.length < 2) return;
-      // Distance from start of copy[0] to start of copy[1] = exact pixel offset for seamless loop
       setCopyWidth(
         (track.children[1] as HTMLElement).offsetLeft -
         (track.children[0] as HTMLElement).offsetLeft
@@ -45,7 +44,6 @@ export const TechStack = () => {
     };
   }, []);
 
-  // Always enough copies to fill 2× the viewport — auto-adapts when tech stacks are added
   const copies = copyWidth > 0
     ? Math.max(4, Math.ceil((window.innerWidth * 2) / copyWidth) + 2)
     : 4;
@@ -77,23 +75,23 @@ export const TechStack = () => {
       {/* Infinite scroll logos */}
       <div className="relative overflow-hidden -my-8 py-16">
         {/*
-         * key={copyWidth}: restarts animation cleanly whenever the measured
-         * copy width changes (e.g. on viewport resize across breakpoints)
+         * No gap on the outer flex — spacing between copies is handled by
+         * px-4 sm:px-5 md:px-6 on each copy div (= half of the respective
+         * inner gap-8/10/12), so the seam between copies is visually identical
+         * to gaps between items within a copy.
          */}
         <motion.div
-          key={copyWidth}
           ref={trackRef}
-          className="flex w-max gap-8 sm:gap-10 md:gap-12"
+          className="flex w-max"
           animate={copyWidth > 0 ? { x: [0, -copyWidth] } : {}}
-          transition={{
-            duration: 30,
-            ease: "linear",
-            repeat: Infinity,
-            repeatType: "loop",
-          }}
+          transition={
+            copyWidth > 0
+              ? { duration: 30, ease: "linear", repeat: Infinity, repeatType: "loop" }
+              : {}
+          }
         >
           {[...Array(copies)].map((_, loopIndex) => (
-            <div key={loopIndex} className="flex gap-8 sm:gap-10 md:gap-12 px-4 sm:px-6">
+            <div key={loopIndex} className="flex gap-8 sm:gap-10 md:gap-12 px-4 sm:px-5 md:px-6">
               {techStacks.map((tech, index) => (
                 <div
                   key={`${loopIndex}-${index}`}
