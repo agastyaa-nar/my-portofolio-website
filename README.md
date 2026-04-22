@@ -243,7 +243,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 👨‍💻 Author
 
 **Dhanar Agastya Rakalangi**
-- Portfolio: [https://narr-curi.vercel.app/]
+- Portfolio: [https://narr-portfolio.vercel.app/]
 - LinkedIn: [https://www.linkedin.com/in/dhanaragastya/]
 - GitHub: [https://github.com/agastyaa-nar]
 - Email: [agastyadhanar@gmail.com]
