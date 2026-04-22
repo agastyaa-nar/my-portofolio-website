@@ -1,10 +1,10 @@
 # My Portofolio Website
 
-A modern, responsive personal portfolio website built with React, TypeScript, and Tailwind CSS. Features a futuristic neon design for dark mode and peaceful aesthetics for light mode, complete with interactive particle backgrounds and a contact form powered by Supabase.
+A modern, responsive personal portfolio website built with React, TypeScript, and Tailwind CSS. Features a futuristic neon design for dark mode and peaceful aesthetics for light mode, complete with interactive particle backgrounds and a contact form connected to excel.
 
 ## 🚀 Live Demo
 
-[View Live Portfolio](https://narr-curi.vercel.app/)
+[View Live Portfolio](https://narr-portfolio.vercel.app/)
 
 ## ✨ Features
 
@@ -243,7 +243,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 👨‍💻 Author
 
 **Dhanar Agastya Rakalangi**
-- Portfolio: [https://narr-curi.vercel.app/]
+- Portfolio: [https://narr-portfolio.vercel.app/]
 - LinkedIn: [https://www.linkedin.com/in/dhanaragastya/]
 - GitHub: [https://github.com/agastyaa-nar]
 - Email: [agastyadhanar@gmail.com]
