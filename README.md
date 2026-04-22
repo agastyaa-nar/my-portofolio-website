@@ -4,7 +4,7 @@ A modern, responsive personal portfolio website built with React, TypeScript, an
 
 ## 🚀 Live Demo
 
-[View Live Portfolio](https://narr-curi.vercel.app/)
+[View Live Portfolio](https://narr-portfolio.vercel.app/)
 
 ## ✨ Features
 
