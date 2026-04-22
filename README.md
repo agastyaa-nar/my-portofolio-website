@@ -1,6 +1,6 @@
 # My Portofolio Website
 
-A modern, responsive personal portfolio website built with React, TypeScript, and Tailwind CSS. Features a futuristic neon design for dark mode and peaceful aesthetics for light mode, complete with interactive particle backgrounds and a contact form powered by Supabase.
+A modern, responsive personal portfolio website built with React, TypeScript, and Tailwind CSS. Features a futuristic neon design for dark mode and peaceful aesthetics for light mode, complete with interactive particle backgrounds and a contact form connected to excel.
 
 ## 🚀 Live Demo
 
