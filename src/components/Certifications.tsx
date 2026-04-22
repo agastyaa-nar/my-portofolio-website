@@ -8,7 +8,7 @@ const certifications = [
     issuer: "AWS Training and Certification", 
     year: "2025", 
     image: "/certs/25.png",
-    logo: "/logos/Dicoding.png",
+    logo: "/logos/AWS.png",
     pdf: "/pdfs/25.pdf"
   },
   { 
@@ -16,7 +16,7 @@ const certifications = [
     issuer: "AWS Training and Certification", 
     year: "2025", 
     image: "/certs/24.png",
-    logo: "/logos/Dicoding.png",
+    logo: "/logos/AWS.png",
     pdf: "/pdfs/24.pdf"
   },
   { 
