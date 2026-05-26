@@ -32,9 +32,22 @@ const techLogos: Record<string, string> = {
   PHP: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg",
   Docker: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg",
   JWT: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/jsonwebtokens.svg",
+  Jest: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jest/jest-plain.svg",
+  Render: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/render.svg",
+  Neon: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/neon.svg",
+  Vercel: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/vercel.svg",
 };
 
 const projects = [
+  {
+    title: "Rembug",
+    description:
+      "A full-stack modern forum platform built with a Hapi.js API, PostgreSQL database, JWT authentication, clean architecture, and a React + Vite + Tailwind CSS frontend. The app supports registration, login, thread feeds, thread details, comments, replies, comment likes, and owner-based content deletion.",
+    tech: ["Node.js", "Hapi.js", "JavaScript", "PostgreSQL", "JWT", "React", "Vite", "Tailwind CSS", "Jest", "Render", "Neon", "Vercel"],
+    demo: "https://rembug-api.vercel.app",
+    github: "https://github.com/Narr-21/forum-api",
+    image: "/projects/Rembug.png",
+  },
   {
     title: "Notes App Back-End",
     description:
