@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import { toast } from "sonner";
 import { Send, CheckCircle, AlertCircle, Loader2 } from "lucide-react";
+import { supabase } from "@/integrations/supabase/client";
 
 export const Connect = () => {
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
@@ -10,13 +11,15 @@ export const Connect = () => {
     "checking" | "connected" | "error"
   >("checking");
 
-  // Ambil URL dari environment (.env)
-  const GOOGLE_SCRIPT_URL = import.meta.env.VITE_GOOGLE_SCRIPT_URL;
-
-  // Simulasikan pengecekan koneksi (Google Script tidak bisa di-ping langsung)
   useEffect(() => {
-    // langsung set connected agar tombol aktif
-    setTimeout(() => setConnectionStatus("connected"), 1000);
+    const hasSupabaseConfig = Boolean(
+      import.meta.env.VITE_SUPABASE_URL &&
+      import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY
+    );
+
+    setTimeout(() => {
+      setConnectionStatus(hasSupabaseConfig ? "connected" : "error");
+    }, 800);
   }, []);
 
   const handleChange = (
@@ -43,19 +46,26 @@ export const Connect = () => {
     }
 
     try {
-      // Gunakan mode no-cors supaya request tidak diblokir browser
-      await fetch(GOOGLE_SCRIPT_URL, {
-        method: "POST",
-        mode: "no-cors",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
+      const { error: insertError } = await supabase.from("contact_messages").insert({
+        name: formData.name,
+        email: formData.email,
+        message: formData.message,
       });
+
+      if (insertError) throw insertError;
+
+      const { error: notificationError } = await supabase.functions.invoke(
+        "notify-discord",
+        { body: formData }
+      );
+
+      if (notificationError) throw notificationError;
 
       toast.success("Message sent successfully! I'll get back to you soon.");
       setFormData({ name: "", email: "", message: "" });
     } catch (error) {
       console.error(error);
-      toast.error("❌ Failed to send message. Please try again later.");
+      toast.error("Failed to send message. Please try again later.");
     } finally {
       setIsSubmitting(false);
     }
@@ -83,14 +93,14 @@ export const Connect = () => {
               <>
                 <Loader2 className="w-4 h-4 animate-spin text-muted-foreground" />
                 <span className="text-muted-foreground">
-                  Connecting to Google Sheet...
+                  Connecting to contact inbox...
                 </span>
               </>
             )}
             {connectionStatus === "connected" && (
               <>
                 <CheckCircle className="w-4 h-4 text-green-500" />
-                <span className="text-green-500">Connected to Google Sheet</span>
+                <span className="text-green-500">Connected to contact inbox</span>
               </>
             )}
             {connectionStatus === "error" && (

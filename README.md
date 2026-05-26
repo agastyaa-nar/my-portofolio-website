@@ -86,7 +86,28 @@ VITE_SUPABASE_PUBLISHABLE_KEY=your_supabase_anon_key
 2. Run the migration file located in `supabase/migrations/`
 3. The migration creates the `contact_messages` table with proper RLS policies
 
-### 5. Start Development Server
+### 5. Discord Notification Setup
+
+The contact form stores messages in Supabase and sends a Discord notification through a Supabase Edge Function.
+
+1. Create a Discord channel for portfolio messages.
+2. Open channel settings, then create a webhook.
+3. Copy the Discord webhook URL.
+4. Save the webhook URL as a Supabase secret:
+
+```bash
+supabase secrets set DISCORD_WEBHOOK_URL="https://discord.com/api/webhooks/..."
+```
+
+5. Deploy the Edge Function:
+
+```bash
+supabase functions deploy notify-discord
+```
+
+The webhook URL must stay server-side. Do not put it in frontend environment variables.
+
+### 6. Start Development Server
 ```bash
 npm run dev
 # or
