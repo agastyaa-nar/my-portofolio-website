@@ -42,10 +42,10 @@ const projects = [
   {
     title: "Rembug",
     description:
-      "A full-stack modern forum platform built with a Hapi.js API, PostgreSQL database, JWT authentication, clean architecture, and a React + Vite + Tailwind CSS frontend. The app supports registration, login, thread feeds, thread details, comments, replies, comment likes, and owner-based content deletion.",
+      "A modern discussion platform designed to keep technical conversations organized and easy to revisit. It includes account access, thread feeds, detailed discussions, comments, nested replies, comment likes, and owner-only content management for a clean community workflow.",
     tech: ["Node.js", "Hapi.js", "JavaScript", "PostgreSQL", "JWT", "React", "Vite", "Tailwind CSS", "Jest", "Render", "Neon", "Vercel"],
     demo: "https://rembug-api.vercel.app",
-    github: "https://github.com/Narr-21/forum-api",
+    github: "https://github.com/agastyaa-nar/rembug",
     image: "/projects/Rembug.png",
   },
   {
