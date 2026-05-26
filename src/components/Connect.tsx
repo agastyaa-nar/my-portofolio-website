@@ -100,7 +100,7 @@ export const Connect = () => {
             {connectionStatus === "connected" && (
               <>
                 <CheckCircle className="w-4 h-4 text-green-500" />
-                <span className="text-green-500">Connected to contact inbox</span>
+                <span className="text-green-500">Connected to Discord Webhooks</span>
               </>
             )}
             {connectionStatus === "error" && (
